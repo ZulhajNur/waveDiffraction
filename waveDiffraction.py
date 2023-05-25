@@ -13,7 +13,7 @@ def rad(x, y, c):
     y = np.sqrt((x-c[0])**2+(y-c[1])**2)
     return int(y)
 
-def plotWave(r):
+def plotWave(r, t=0):
     global arr
     
     arrPlot = np.zeros((res[0], res[1]))
@@ -21,12 +21,9 @@ def plotWave(r):
     
     for i in range(0, len(arrPlot[0])):
         for j in range(int(len(arrPlot[0])/2), len(arrPlot)):
-            arrPlot[i, j] = f(rad(i, j, c))
+            arrPlot[i, j] = f(rad(i, j, c), t=t)
 
     arr += arrPlot
-
-def updateFig(n):
-    line.set_ydata(arr[:,200+n])    
 
 fig, ax = plt.subplots()
 
@@ -43,8 +40,14 @@ else:
     slitu = int(slit/2 + 1)
 slitd = int(-slit/2)
 
-for i in range(slitd, slitu):
-    plotWave(i)
+img = []
+for j in range(0, 5):
+    for i in range(slitd, slitu):
+        im = ax.imshow(plotWave(i, t=j), animate=True)
+    if j == 0:
+        ax.imshow(plotWave(i, t=0))
+    img.append(im)
+
 
 ### Straight Wave Section
 ##for i in range(0, len(arr)):
@@ -55,10 +58,6 @@ for i in range(slitd, slitu):
 ##plt.text(0, -10, '1 pixel : {} mm'.format(ratio))
 ##plt.imshow(arr, cmap='gray')
 
-
-line, = ax.plot(arr[:, 200])
-ax.set_ylim(np.min(arr), np.max(arr))
-
-ani = animation.FuncAnimation(fig, updateFig, frames=range(0, 200), interval=0.1, repeat=True)
+ani = animation.ArtistAnimation(fig, img, repeat=True)
 
 plt.show()
