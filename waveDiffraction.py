@@ -26,8 +26,6 @@ def plotWave(r):
     arr += arrPlot
 
 def updateFig(n):
-    if n == 199:
-        ani.event_source.stop()
     line.set_ydata(arr[:,200+n])    
 
 fig, ax = plt.subplots()
@@ -61,5 +59,6 @@ for i in range(slitd, slitu):
 line, = ax.plot(arr[:, 200])
 ax.set_ylim(np.min(arr), np.max(arr))
 
-ani = animation.FuncAnimation(fig, updateFig, interval=0.1)
+ani = animation.FuncAnimation(fig, updateFig, frames=range(0, 200), interval=0.1, repeat=True)
+
 plt.show()
