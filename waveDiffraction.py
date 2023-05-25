@@ -26,7 +26,9 @@ def plotWave(r):
     arr += arrPlot
 
 def updateFig(n):
-    line.set_ydata(arr[:,200+n])
+    if n == 199:
+        ani.event_source.stop()
+    line.set_ydata(arr[:,200+n])    
 
 fig, ax = plt.subplots()
 
@@ -36,7 +38,14 @@ res  = 400, 400
 
 arr = np.zeros((res[0], res[1]))
 
-for i in range(-20, 20):
+slit = 40
+if slit%2 == 0:
+    slitu = int(slit/2)
+else:
+    slitu = int(slit/2 + 1)
+slitd = int(-slit/2)
+
+for i in range(slitd, slitu):
     plotWave(i)
 
 ### Straight Wave Section
