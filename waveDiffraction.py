@@ -54,31 +54,3 @@ ax.set_ylim(np.min(arr), np.max(arr))
 
 ani = animation.FuncAnimation(fig, updateFig, interval=0.1)
 plt.show()
-
-
-
-##x = []
-##
-##for i in range(0, 400):
-##    x.append(i)
-
-##plt.plot(x, arr[:, 400-1])
-##plt.show()
-
-
-##n3Img = (arr1/np.max(arr1))*255
-
-##canvas = None
-##
-##root = tk.Tk()
-
-##mainFrame = tk.Frame(root, width=404, height=404)
-##mainFrame.grid(), mainFrame.grid_propagate(0)
-##
-##LImage = tk.Label(mainFrame, image=ImageTk.PhotoImage(Image.fromarray(np.array(n3Img))))
-##LImage.grid(row=0, column=1)
-
-
-##LImage.config(image = img)
-##LImage.image = img
-
