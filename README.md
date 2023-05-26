@@ -1,6 +1,6 @@
 # waveDiffraction
-Python code simulating single slit wave diffraction
+Python code simulating single slit wave diffraction.
 
-This code use matplotlib library to visualize the wave diffraction
+This code use matplotlib library to visualize the wave diffraction.
 
-The code to visualize the wave still not completed yet, rather showing slice of the wave diffraction at fixed time variable
+waveDiffraction.py are program to show a visualization about wave that go through a single slit then produce a wave diffraction, and waveDiffraction.py are program that show a slice of the propagation of wave diffraction which show an interference pattern.
