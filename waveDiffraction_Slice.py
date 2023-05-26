@@ -4,7 +4,7 @@ import matplotlib.animation as animation
 import multiprocessing as mp
 import tkinter as tk
 from PIL import Image, ImageTk
-    
+
 def f(x, w=1, t=0):
     y = np.sin(k*x-w*t)
     return y

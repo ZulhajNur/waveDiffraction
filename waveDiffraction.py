@@ -43,11 +43,10 @@ slitd = int(-slit/2)
 img = []
 for j in range(0, 5):
     for i in range(slitd, slitu):
-        im = ax.imshow(plotWave(i, t=j), animate=True)
+        im = ax.imshow(plotWave(i, t=j), animated=True)
     if j == 0:
         ax.imshow(plotWave(i, t=0))
     img.append(im)
-
 
 ### Straight Wave Section
 ##for i in range(0, len(arr)):
